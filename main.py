@@ -28,7 +28,7 @@ def snc(path):
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     sonuc=json.loads(response.text) 
-    return (str(sonuc.get("aweme_details")))
+    return ({"result":sonuc.get("aweme_details")})
 
 
 if __name__ == '__main__':
