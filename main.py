@@ -13,11 +13,16 @@ def favicon():
 
 @app.route('/video/<path:path>')
 def snc(path):
-    url = "https://tiktok28.p.rapidapi.com/video"
-    querystring = {"url": path}
+    
+    id=path.split("/video/")[1].split("?")[0]
+    
+    url = "https://tiktok-all-in-one.p.rapidapi.com/video"
+
+    querystring = {"id":id}
+
     headers = {
-        "X-RapidAPI-Host": "tiktok28.p.rapidapi.com",
-        "X-RapidAPI-Key": "529e3f03c0msh06af56ae5d4985dp153eeejsna77eac11e459"
+	"X-RapidAPI-Host": "tiktok-all-in-one.p.rapidapi.com",
+	"X-RapidAPI-Key": "529e3f03c0msh06af56ae5d4985dp153eeejsna77eac11e459"
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
     return (response.text)
